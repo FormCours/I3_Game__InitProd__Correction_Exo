@@ -55,6 +55,7 @@
 
 
 // Compter les voyelles d'un mot 
+/*
 {
     Dictionary<char, int> dico = new Dictionary<char, int>();
     char[] voyelles = ['a', 'e', 'i', 'u', 'o', 'y'];
@@ -81,6 +82,116 @@
         if(item.Value > 0)
         {
             Console.WriteLine($" - {item.Key} : {item.Value}");
+        }
+    }
+}
+*/
+
+// Application de scoring
+{
+    // 1) Saisie des noms des joueuses (Unique)
+    List<string> joueuses = new List<string>();
+    const string STOP_KEY = "STOP";
+    Console.WriteLine($"Veuillez encoder le nom des joueuses (\"{STOP_KEY}\" pour arrêter)");
+    string nom;
+    do
+    {
+        Console.Write("> ");
+        nom = Console.ReadLine()!.ToUpper();
+        if (nom != STOP_KEY)
+        {
+            if (!joueuses.Contains(nom))
+            {
+                joueuses.Add(nom);
+                Console.WriteLine("La joueuse ajoutée ! Ajouter une autre ?");
+            }
+            else
+            {
+                Console.WriteLine("La joueuse est déjà encodée ! Essai encore");
+            }
+        }
+    }
+    while (nom != STOP_KEY);
+    Console.WriteLine();
+
+
+    // 2) Information pour la partie
+    Console.WriteLine("Nombre de manche (Entier positif)");
+    int nbManche;
+    bool estValide;
+    do
+    {
+        Console.Write("> ");
+        estValide = int.TryParse(Console.ReadLine(), out nbManche);
+    }
+    while (!estValide || nbManche < 1);
+    Console.WriteLine();
+
+
+    // 3) Création du dico pour la partie (Fiche de score)
+    Dictionary<string, int[]> scores = new Dictionary<string, int[]>();
+    foreach (string joueuse in joueuses)
+    {
+        scores.Add(joueuse, new int[nbManche]);
+    }
+
+
+    // 4) Saisie des scores par manche
+    int indexManche = 0;
+    do
+    {
+        // 4.1) Annonce de la manche
+        Console.WriteLine($"Score pour la manche {indexManche + 1}");
+
+        // 4.2) Encode le score de chaque joueuse (Monde des bisounours -> Encodage correct !)
+        for (int i = 0; i < joueuses.Count; i++)
+        {
+            // - Récuperation de la joueuse ciblée
+            string joueuseCible = joueuses[i];
+
+            // - Demande le score de la joueuse
+            Console.Write($" - ${joueuseCible} : ");
+            int scoreCible = int.Parse(Console.ReadLine()!);
+
+            // - Sauvegarde du score dans l'objet "scores"
+            int[] ligneScoreDeLaJoueuse = scores[joueuseCible];
+            ligneScoreDeLaJoueuse[indexManche] = scoreCible;
+        }
+
+        // 4.3) On passe à la manche suivante
+        indexManche++;
+
+    } while (indexManche < nbManche);
+    Console.WriteLine();
+
+    // 5) Affichage des resultats
+
+    // 5.0) Calculer le score total de chaque joueuses
+    Dictionary<string, int> scoreFinaux = new Dictionary<string, int>();
+    foreach (var ligne in scores)
+    {
+        // - Pour rendre le code lisible (variable nommé)
+        string joueuse = ligne.Key;
+        int[] ligneScore = ligne.Value;
+
+        // - Calculer le score total
+        int scoreTotal = ligneScore.Sum(); // Boucle caché !
+
+        // - Sauvegarde du score dans "scoreFinaux"
+        scoreFinaux.Add(joueuse, scoreTotal);
+    }
+
+    // 5.1) La gagnante (voir les gagnantes)
+    // - Obtenir le meilleur score
+    int meilleurScore = scoreFinaux.Values.Min();
+
+    // - Obtenir la joueuse (ou les joueuses) avec le meilleur score
+    Console.WriteLine($"Avec le score de {meilleurScore}, les gagnantes sont : ");
+    foreach(var elem in scoreFinaux)
+    {
+        if(elem.Value == meilleurScore)
+        {
+            Console.WriteLine($" - {elem.Key}");
         }
     }
 }
