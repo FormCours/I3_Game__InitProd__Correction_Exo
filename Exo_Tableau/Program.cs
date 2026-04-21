@@ -57,12 +57,11 @@
 // Compter les voyelles d'un mot 
 {
     Dictionary<char, int> dico = new Dictionary<char, int>();
-    dico.Add('a', 0);
-    dico.Add('e', 0);
-    dico.Add('i', 0);
-    dico.Add('o', 0);
-    dico.Add('u', 0);
-    dico.Add('y', 0);
+    char[] voyelles = ['a', 'e', 'i', 'u', 'o', 'y'];
+    foreach(char voyelle in voyelles)
+    {
+        dico.Add(voyelle, 0);
+    }
 
     Console.Write("Veuillez encoder une phrase\n > ");
     string phrase = Console.ReadLine()!.ToLower();
