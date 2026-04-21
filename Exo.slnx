@@ -3,5 +3,6 @@
     <File Path="Ressources/exo_collection_1.md" />
     <File Path="Ressources/exo_collection_2.md" />
   </Folder>
+  <Project Path="Exo_Enum/Exo_Enum.csproj" />
   <Project Path="Exo_Tableau/Exo_Tableau.csproj" />
 </Solution>
