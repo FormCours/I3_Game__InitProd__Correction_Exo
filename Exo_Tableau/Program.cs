@@ -1,4 +1,5 @@
 ﻿// - Liste de tache
+/*
 {
     List<string> taches = new List<string>();
     string choix;
@@ -50,4 +51,37 @@
 
     Console.WriteLine("Au revoir !");
 }
+*/
 
+
+// Compter les voyelles d'un mot 
+{
+    Dictionary<char, int> dico = new Dictionary<char, int>();
+    dico.Add('a', 0);
+    dico.Add('e', 0);
+    dico.Add('i', 0);
+    dico.Add('o', 0);
+    dico.Add('u', 0);
+    dico.Add('y', 0);
+
+    Console.Write("Veuillez encoder une phrase\n > ");
+    string phrase = Console.ReadLine()!.ToLower();
+    Console.WriteLine();
+
+    foreach(char lettre in phrase)
+    {
+        if(dico.ContainsKey(lettre))
+        {
+            dico[lettre]++;
+        }
+    }
+
+    Console.WriteLine("Les voyelles suivantes ont été trouvées : ");
+    foreach(KeyValuePair<char, int> item in dico)
+    {
+        if(item.Value > 0)
+        {
+            Console.WriteLine($" - {item.Key} : {item.Value}");
+        }
+    }
+}
