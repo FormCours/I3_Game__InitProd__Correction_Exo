@@ -194,4 +194,32 @@
             Console.WriteLine($" - {elem.Key}");
         }
     }
+
+    // 5.2) Le classement des joueurs
+    int[] classementScore = scoreFinaux.Values.ToArray();
+    string[] classementJoueuse = scoreFinaux.Keys.ToArray();
+
+    for (int k = 0; k < classementScore.Length; k++)
+    {
+        for (int i = 0; i < (classementScore.Length - k - 1); i++)
+        {
+            int score1 = classementScore[i];
+            int score2 = classementScore[i + 1];
+
+            if (score1 > score2)
+            {
+                // Tri le score
+                classementScore[i] = score2;
+                classementScore[i + 1] = score1;
+
+                // Inverse les joueurs pour les synchroniser au classementScore
+                string temp = classementJoueuse[i];              // Copie backup
+                classementJoueuse[i] = classementJoueuse[i + 1]; // Modifie la joueuse 1 (lier au score1)
+                classementJoueuse[i + 1] = temp;                 // Modifie la joueuse 2 (via le backup)
+            }
+        }
+    }
+
+
+
 }
