@@ -3,6 +3,8 @@
     <File Path="README.md" />
     <File Path="Ressources/exo_collection_1.md" />
     <File Path="Ressources/exo_collection_2.md" />
+    <File Path="Ressources/exo_structure_&amp;_enum.md" />
   </Folder>
+  <Project Path="Exo_Structure_Enum/Exo_Structure_Enum.csproj" Id="e65830d1-59be-4175-83ec-efb01809e2a1" />
   <Project Path="Exo_Tableau/Exo_Tableau.csproj" />
 </Solution>

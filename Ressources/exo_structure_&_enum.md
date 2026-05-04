@@ -24,7 +24,7 @@ Total         | Categorie
 
 ---
 
-## Exercice 2 — Inventaire de butin
+## Exercice 2 — Gestion d'inventaire de butin
 Créer une structure `Butin` :
 - Son nom : `string`
 - Sa quantité: `int` 
@@ -68,5 +68,5 @@ Créer une structure `Cartes` :
 En utilisant une boucle, créer un tableau de 52 cartes.  
 Afficher les cartes dans la console.
 
-Ensuite, mélanger les cartes (Have fun :p)
+Ensuite, mélanger les cartes (Have fun :p).  
 Afficher les cartes après le mélange. 
