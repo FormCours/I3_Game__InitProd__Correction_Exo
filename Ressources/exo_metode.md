@@ -14,4 +14,21 @@ Le code devra contenir (minimum) les méthodes suivantes :
 - AfficherMotATrouve(...) → Exemple : I _ _ E _ _ _ _ E
 - AfficherGameover(...) → Message de fin de partie avec le resultat
 
-_Les méthodes peuvent directement implémenté dans program.cs_
+Tips: 
+- _Utiliser des mots simple. Sans tiret ou espace_
+- _Les méthodes peuvent directement implémenté dans program.cs_
+
+## Exercice 2 
+Réaliser une application qui permet de manipuler une phrase saisi par l'utilisateur.
+
+L'application doit avoir comme méthode : 
+- ObtenirPhrase()
+- CompterVoyelles(...)
+- EstPalindrome(...) → Ignorer les espaces et majuscules
+- MettrePremiereLettreMajuscule(...)
+- AfficherResultat(...)
+
+En bonus, vous pouvez aussi ajouter :p
+- ObtenirPourcentageVoyelles(...)
+- CompterCaracteres(...) → Doit renvoyer un dico avec les resultats
+
